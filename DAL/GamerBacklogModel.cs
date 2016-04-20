@@ -13,16 +13,18 @@ namespace DAL
         {
         }
 
-        public virtual DbSet<Game> Games { get; set; }
-        public virtual DbSet<GamePlatform> GamePlatforms { get; set; }
-        public virtual DbSet<Platform> Platforms { get; set; }
+        static GamerBacklogModel() 
+        {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<GamerBacklogModel>()); 
+        } 
+
+        public virtual DbSet<Game> Game { get; set; }
+        public virtual DbSet<GamePlatform> GamePlatform { get; set; }
+        public virtual DbSet<Platform> Platform { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Game>()
-                .HasMany(e => e.GamePlatforms)
-                .WithRequired(e => e.Game)
-                .WillCascadeOnDelete(false);            
+                            
         }
     }
 }

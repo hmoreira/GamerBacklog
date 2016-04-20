@@ -11,6 +11,6 @@ namespace Domain.Model
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Platform> Platforms { get; set; }
+        public virtual ICollection<GamePlatform> GamePlatforms { get; set; }
     }
 }

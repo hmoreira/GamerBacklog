@@ -60,6 +60,11 @@
     <Compile Include="GameDAL.cs" />
     <Compile Include="GamePlatformDAL.cs" />
     <Compile Include="GamerBacklogModel.cs" />
+    <Compile Include="Migrations\201604141733083_InitialCreate.cs" />
+    <Compile Include="Migrations\201604141733083_InitialCreate.Designer.cs">
+      <DependentUpon>201604141733083_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,6 +85,11 @@
       <Project>{53e59ccb-e01f-4b5d-8b3f-52ab7898f43c}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604141733083_InitialCreate.resx">
+      <DependentUpon>201604141733083_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

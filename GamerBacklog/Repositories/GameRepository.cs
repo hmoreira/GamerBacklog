@@ -15,12 +15,12 @@ namespace GamerBacklog.Repositories
 
         public IEnumerable<Game> Get()
         {
-            return context.Games.ToList();
+            return context.Game.ToList();
         }
 
         public Game Get(int id)
         {
-            var game = context.Games.Find(id);
+            var game = context.Game.Find(id);
             context.Entry(game).State = EntityState.Unchanged;
             return game; 
         }
@@ -28,15 +28,15 @@ namespace GamerBacklog.Repositories
         public void Add(Game entity)
         {
             context.Entry(entity).State = EntityState.Added; 
-            context.Games.Add(entity);
+            context.Game.Add(entity);
             context.SaveChanges();
         }
 
         public void Remove(Game entity)
         {
-            var obj = context.Games.Find(entity.Id);
+            var obj = context.Game.Find(entity.Id);
             context.Entry(entity).State = EntityState.Deleted; 
-            context.Games.Remove(obj);
+            context.Game.Remove(obj);
             context.SaveChanges();
         }
 

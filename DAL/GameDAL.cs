@@ -20,7 +20,7 @@ namespace DAL
 
         public Game GetDetails(int? id)
         {
-            Game game = db.Games.Find(id);
+            Game game = db.Game.Find(id);
             if (game == null)
                 return new Game();
             else
