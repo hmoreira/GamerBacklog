@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerBacklog.MVC", "GamerBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerBacklog.Domain", "GamerBacklog.Domain\GamerBacklog.Domain.csproj", "{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A2B8A664-5FC8-42F4-998D-336B7546916A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerBacklog.Infrastructure.Data", "GamerBacklog.Infrastructure.Data\GamerBacklog.Infrastructure.Data.csproj", "{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +46,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9142CE0F-AC5C-427B-B535-CBA936F7C956} = {8232FE10-A45E-46B6-ABA4-B797D4B91BEA}
 		{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D} = {295D6B24-2789-4247-9ED7-7469239945BD}
+		{A2B8A664-5FC8-42F4-998D-336B7546916A} = {42B18C2B-5E4C-4A40-BFB8-D06642DED64D}
+		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD} = {A2B8A664-5FC8-42F4-998D-336B7546916A}
 	EndGlobalSection
 EndGlobal
