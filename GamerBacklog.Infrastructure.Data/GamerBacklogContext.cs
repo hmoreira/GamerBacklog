@@ -14,8 +14,8 @@ namespace GamerBacklog.Infrastructure.Data
     {
         public GamerBacklogContext() : base("GamerBacklog") { }
 
-        public DbSet<Platform> Platform { get; set; }
-        public DbSet<Game> Game { get; set; }
+        public DbSet<Platform> Platforms { get; set; }
+        public DbSet<Game> Games { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

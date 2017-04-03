@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D}</ProjectGuid>
+    <ProjectGuid>{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GamerBacklog.Domain</RootNamespace>
-    <AssemblyName>GamerBacklog.Domain</AssemblyName>
+    <RootNamespace>GamerBacklog.Application</RootNamespace>
+    <AssemblyName>GamerBacklog.Application</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,22 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Entities\Game.cs" />
-    <Compile Include="Entities\Platform.cs" />
-    <Compile Include="Interfaces\Repositories\IPlatformRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IGameRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
-    <Compile Include="Interfaces\Services\IPlatformService.cs" />
-    <Compile Include="Interfaces\Services\IGameService.cs" />
-    <Compile Include="Interfaces\Services\IServiceBase.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PlatformService.cs" />
-    <Compile Include="Services\GameService.cs" />
-    <Compile Include="Services\ServiceBase.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServiceBase.cs" />
+    <Compile Include="PlatformAppService.cs" />
+    <Compile Include="GameAppService.cs" />
+    <Compile Include="Interfaces\IAppServiceBase.cs" />
+    <Compile Include="Interfaces\IPlatformAppService.cs" />
+    <Compile Include="Interfaces\IGameAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GamerBacklog.Domain\GamerBacklog.Domain.csproj">
+      <Project>{35ef7e9f-2a87-4b1c-9dd4-cf5b2ee3d85d}</Project>
+      <Name>GamerBacklog.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

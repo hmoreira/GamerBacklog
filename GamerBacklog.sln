@@ -21,6 +21,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A2B8A664-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerBacklog.Infrastructure.Data", "GamerBacklog.Infrastructure.Data\GamerBacklog.Infrastructure.Data.csproj", "{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerBacklog.Application", "GamerBacklog.Application\GamerBacklog.Application.csproj", "{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{99B7794C-9928-4ECB-924E-2871D34D2787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamerBacklog.Infrastructure.CrossCutting.IoC", "GamerBacklog.Infrastructure.CrossCutting.IoC\GamerBacklog.Infrastructure.CrossCutting.IoC.csproj", "{AE80CF84-101B-4802-AC61-D551CD64B226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,14 @@ Global
 		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE80CF84-101B-4802-AC61-D551CD64B226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE80CF84-101B-4802-AC61-D551CD64B226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE80CF84-101B-4802-AC61-D551CD64B226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE80CF84-101B-4802-AC61-D551CD64B226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +62,8 @@ Global
 		{35EF7E9F-2A87-4B1C-9DD4-CF5B2EE3D85D} = {295D6B24-2789-4247-9ED7-7469239945BD}
 		{A2B8A664-5FC8-42F4-998D-336B7546916A} = {42B18C2B-5E4C-4A40-BFB8-D06642DED64D}
 		{CF0A7243-AE7F-453F-AC11-9128C5BAAFFD} = {A2B8A664-5FC8-42F4-998D-336B7546916A}
+		{B63C13F5-4CEF-416F-99F1-11F92CE6D1B9} = {67650001-D8A3-47D1-83B6-D80BFA296069}
+		{99B7794C-9928-4ECB-924E-2871D34D2787} = {42B18C2B-5E4C-4A40-BFB8-D06642DED64D}
+		{AE80CF84-101B-4802-AC61-D551CD64B226} = {99B7794C-9928-4ECB-924E-2871D34D2787}
 	EndGlobalSection
 EndGlobal
