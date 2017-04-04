@@ -10,7 +10,6 @@ namespace GamerBacklog.MVC
         public static void RegisterComponents()
         {
             _container = new UnityContainer();
-
             new UnityConfiguration().Register(_container);
         }
 
