@@ -1,21 +1,30 @@
-﻿using GamerBacklog.Infrastructure.CrossCutting.IoC;
+﻿using System;
+using GamerBacklog.Infrastructure.CrossCutting.IoC;
 using Microsoft.Practices.Unity;
 
-namespace GamerBacklog.MVC
+namespace GamerBacklog.MVC.App_Start
 {
-    public static class UnityConfig
+    /// <summary>
+    /// Specifies the Unity configuration for the main container.
+    /// </summary>
+    public class UnityConfig
     {
-        private static UnityContainer _container;
-
-        public static void RegisterComponents()
+        #region Unity Container
+        private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
         {
-            _container = new UnityContainer();
-            new UnityConfiguration().Register(_container);
-        }
+            var container = new UnityContainer();
+            new UnityConfiguration().Register(container);
+            return container;
+        });
 
-        public static T Resolve<T>()
+        /// <summary>
+        /// Gets the configured Unity container.
+        /// </summary>
+        public static IUnityContainer GetConfiguredContainer()
         {
-            return _container.Resolve<T>();
+            return container.Value;
         }
+        #endregion
+        
     }
 }

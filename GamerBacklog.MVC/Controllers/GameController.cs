@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
+using System;
 using GamerBacklog.Application.Interfaces;
-using AutoMapper;
 using System.Collections.Generic;
 using GamerBacklog.Domain.Entities;
-using GamerBacklog.MVC.ViewModels;
+using Newtonsoft.Json;
 
 namespace GamerBacklog.MVC.Controllers
 {
@@ -18,78 +18,43 @@ namespace GamerBacklog.MVC.Controllers
         // GET: Game
         public ActionResult Index()
         {
-            var gameViewModel = Mapper.Map<IEnumerable<Game>, IEnumerable<GameViewModel>>(_gameApp.GetAll());
-            return View(gameViewModel);
-        }
-
-        // GET: Game/Details/5
-        public ActionResult Details(int id)
-        {
-            var game = _gameApp.GetById(id);
-            var gameViewModel = Mapper.Map<Game, GameViewModel>(game);
-            return View(gameViewModel);
-        }
-
-        // GET: Game/Create
-        public ActionResult Create()
-        {
             return View();
         }
 
-        // POST: Game/Create
+        public JsonResult ObtemGames()
+        {
+            IEnumerable<Game> games = _gameApp.GetAll();
+            return Json(games, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(GameViewModel game)
+        public string Adicionar(string nome, List<int> platformIds)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var gameDomain = Mapper.Map<GameViewModel, Game>(game);
-                _gameApp.Add(gameDomain);
-                return RedirectToAction("Index");
+                Game game = new Game();
+                List<Platform> platforms = new List<Platform>();
+
+                foreach (var platformId in platformIds)
+                {
+                    platforms.Add(new Platform
+                    {
+                        PlatformId = platformId
+                    });
+                }
+
+                game.Nome = nome;
+                game.Platforms = platforms;
+
+                _gameApp.Add(game);
+
+                return JsonConvert.SerializeObject("OK", Formatting.Indented);
             }
-
-            return View(game);
-        }
-
-        // GET: Game/Edit/5
-        public ActionResult Edit(int id)
-        {
-            var game = _gameApp.GetById(id);
-            var gameViewModel = Mapper.Map<Game, GameViewModel>(game);
-            return View(gameViewModel);
-        }
-
-        // POST: Game/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(GameViewModel game)
-        {
-            if (ModelState.IsValid)
+            catch (Exception ex)
             {
-                var gameDomain = Mapper.Map<GameViewModel, Game>(game);
-                _gameApp.Update(gameDomain);
-                return RedirectToAction("Index");
+                return JsonConvert.SerializeObject(ex.Message, Formatting.Indented);
             }
-
-            return View(game);
         }
 
-        // GET: Game/Delete/5
-        public ActionResult Delete(int id)
-        {
-            var game = _gameApp.GetById(id);
-            var gameViewModel = Mapper.Map<Game, GameViewModel>(game);
-            return View(gameViewModel);
-        }
-
-        // POST: Game/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            var game = _gameApp.GetById(id);
-            _gameApp.Remove(game);
-            return RedirectToAction("Index");
-        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using GamerBacklog.Domain.Entities;
 
 namespace GamerBacklog.Infrastructure.Data.EntityConfig

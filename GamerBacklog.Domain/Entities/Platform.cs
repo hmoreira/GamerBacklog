@@ -6,6 +6,7 @@ namespace GamerBacklog.Domain.Entities
     {
         public int PlatformId { get; set; }
         public string Nome { get; set; }        
+      
         public virtual ICollection<Game> Games { get; set; }
     }
 }

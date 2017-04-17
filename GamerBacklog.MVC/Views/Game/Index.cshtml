@@ -1,33 +1,80 @@
-﻿@model IEnumerable<GamerBacklog.MVC.ViewModels.GameViewModel>
+﻿<style>
+    .div-inline {
+        display: inline-block;
+    }
+</style>
 
-@{
-    ViewBag.Title = "Index";
-}
+<form novalidate class="css-form">
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Cadastro</span>
+        </div>
+        <div class="panel-body">
 
-<h2>Index</h2>
+            <div ng-controller="cadastroGameCtrl">
+                
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Game</span>
+                            <input type="text" class="form-control" placeholder="Nome do game"
+                                   aria-describedby="basic-addon1" ng-model="nomeGame">
+                        </div>        
+                    </div>
+                </div><br />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th></th>
-    </tr>
+                <p>Plataformas</p>
+                <div class="input-group">
+                    <span class="input-group-addon" ng-repeat="platform in platforms">
+                        <input type="checkbox" ng-model="selectedPlatform" ng-click="toggleSelection(platform.PlatformId)"
+                               value="{{platform.PlatformId}}" /> {{platform.Nome}}
+                    </span>
+                </div><br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GameId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GameId })
-        </td>
-    </tr>
-}
+                <button type="button" class="btn btn-default" ng-click="Incluir()"
+                        ng-disabled="nomeGame == null">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Adicionar
+                </button>
 
-</table>
+                <br /><br />
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title">Consulta</h1>
+        </div>
+        <div class="panel-body">
+
+            @*<table class="table table-bordered">
+                <tr style="background-color: lightgrey">
+                    <th>Produto</th>
+                    <th>Qtd.</th>
+                    <th>Valor</th>
+                    <th>Valor Total</th>
+                    <th>Ação</th>
+                </tr>
+                <tr ng-repeat="item in itens">
+                    <td>{{item.NomeProduto}}</td>
+                    <td>{{item.Quantidade}}</td>
+                    <td>{{item.Valor | currency}}</td>
+                    <td>{{item.ValorTotal | currency}}</td>
+                    <td>
+                        <button type="button" ng-click="ExcluirItem($index)" class="btn btn-default">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>*@
+
+        </div>
+    </div>
+
+</form>
+
+
